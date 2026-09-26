@@ -1,6 +1,6 @@
 # Eat & Split
 
-Eat & Split is a responsive React app for tracking shared meals with friends. Add friends, record bills, and see each person’s balance from your perspective at a glance.
+Eat & Split is a simple bill-splitting app for keeping track of shared meals with friends. Add friends, record expenses, and see who owes whom at a glance.
 
 ## Features
 
@@ -12,14 +12,14 @@ Eat & Split is a responsive React app for tracking shared meals with friends. Ad
 - Update balances immediately after splitting a bill.
 - Use the layout comfortably on desktop and smaller screens.
 
-## Using the App
+## How It Works
 
 1. Open the app to see the starter friend list and current balances.
 2. Select **Add friend**, enter a name and image URL, then submit the form.
 3. Select a friend to open the bill form.
-4. Enter the bill value and your expense. The friend’s expense is calculated from the remaining amount.
-5. Choose who paid the bill and select **Split bill**.
-6. The friend’s balance updates and the bill form closes.
+4. Enter the total bill and your share. The friend’s share is calculated automatically.
+5. Choose who paid and select **Split bill**.
+6. The balance updates immediately and the form closes.
 
 Balances are tracked from your perspective. When you pay more than your share, the friend’s balance increases because they owe you. When your friend pays more, the balance decreases because you owe them.
 
@@ -56,14 +56,14 @@ Open [http://localhost:3000](http://localhost:3000) in your browser. The develop
 Eat-And-Split/
 ├── public/                 # Static files and app metadata
 ├── src/
-│   ├── components/         # Shared or grouped UI components
-│   ├── App.js              # App state and friend/bill workflows
-│   ├── Button.js            # Reusable button component
-│   ├── config.js            # Starter friend data
-│   ├── FormAddFriend.js     # Add-friend form
-│   ├── FormSplitBill.js     # Bill-splitting form
-│   ├── Friend.js            # Friend row and balance display
+│   ├── components/          # Buttons, forms, and friend row components
+│   │   ├── Button.js
+│   │   ├── FormAddFriend.js
+│   │   ├── FormSplitBill.js
+│   │   └── Friend.js
+│   ├── App.js               # App state and friend/bill workflows
 │   ├── FriendsList.js       # Friend list rendering
+│   ├── config.js            # Starter friend data
 │   ├── index.css            # Global application styles
 │   └── index.js             # React entry point
 ├── package.json             # Dependencies and npm scripts
@@ -77,7 +77,7 @@ Eat-And-Split/
 - JavaScript
 - CSS
 
-## Data and Limitations
+## Notes
 
 - Friend data and balances are held in React state only; refreshing the page resets changes to the starter data.
 - New profile images use the URL entered in the form, so the image must be publicly reachable by the browser.

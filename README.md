@@ -1,29 +1,74 @@
 # Eat & Split
 
-Eat & Split is a simple React app for keeping track of shared meals with friends. Add the people you regularly eat with, select a friend, and record who paid for the bill. The app automatically keeps each friend’s balance up to date so you always know who owes whom.
+Eat & Split is a responsive React app for tracking shared meals with friends. Add friends, record bills, and see each person’s balance from your perspective at a glance.
 
 ## Features
 
-- Add friends with a name and profile image URL.
-- Select a friend to open a bill-splitting form.
-- Enter the total bill and each person’s share.
-- Choose whether you or your friend paid the bill.
-- See balances at a glance:
-  - **You owe** a friend when your balance is negative.
-  - **A friend owes you** when their balance is positive.
-  - **You are even** when the balance is zero.
-- Close the selected friend or the add-friend form when it is no longer needed.
+- Add a friend with a name and profile image URL.
+- Select a friend to open the bill-splitting form.
+- Enter the total bill and your share; the other share is calculated automatically.
+- Choose whether you or your friend paid.
+- View clear balance states: **You owe**, **Friend owes you**, or **You are even**.
+- Update balances immediately after splitting a bill.
+- Use the layout comfortably on desktop and smaller screens.
 
-## How It Works
+## Using the App
 
-1. Start the app and review your friend list.
-2. Select **Add friend** to add someone new.
-3. Choose a friend and enter the total bill.
-4. Enter your share of the bill. The friend’s share is calculated automatically.
-5. Select who paid the bill and submit the form with **Split bill**.
-6. The friend’s balance is updated immediately.
+1. Open the app to see the starter friend list and current balances.
+2. Select **Add friend**, enter a name and image URL, then submit the form.
+3. Select a friend to open the bill form.
+4. Enter the bill value and your expense. The friend’s expense is calculated from the remaining amount.
+5. Choose who paid the bill and select **Split bill**.
+6. The friend’s balance updates and the bill form closes.
 
-Balances are tracked from your perspective. For example, if you pay the full bill, your friend’s balance increases because they owe you their share. If your friend pays, your balance decreases because you owe them.
+Balances are tracked from your perspective. When you pay more than your share, the friend’s balance increases because they owe you. When your friend pays more, the balance decreases because you owe them.
+
+## Getting Started
+
+### Requirements
+
+- Node.js 14 or later
+- npm
+
+### Install and Run
+
+```bash
+git clone https://github.com/AmrahovaDilber/Eat-And-Split.git
+cd Eat-And-Split
+npm install
+npm start
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser. The development server reloads when source files change.
+
+## Available Scripts
+
+| Command | Description |
+| --- | --- |
+| `npm start` | Runs the app in development mode. |
+| `npm test` | Starts the Create React App test runner. |
+| `npm run build` | Creates an optimized production build in `build/`. |
+| `npm run eject` | Copies the Create React App configuration into the project. This is irreversible. |
+
+## Project Structure
+
+```text
+Eat-And-Split/
+├── public/                 # Static files and app metadata
+├── src/
+│   ├── components/         # Shared or grouped UI components
+│   ├── App.js              # App state and friend/bill workflows
+│   ├── Button.js            # Reusable button component
+│   ├── config.js            # Starter friend data
+│   ├── FormAddFriend.js     # Add-friend form
+│   ├── FormSplitBill.js     # Bill-splitting form
+│   ├── Friend.js            # Friend row and balance display
+│   ├── FriendsList.js       # Friend list rendering
+│   ├── index.css            # Global application styles
+│   └── index.js             # React entry point
+├── package.json             # Dependencies and npm scripts
+└── README.md                # Project documentation
+```
 
 ## Tech Stack
 
@@ -32,55 +77,8 @@ Balances are tracked from your perspective. For example, if you pay the full bil
 - JavaScript
 - CSS
 
-## Getting Started
+## Data and Limitations
 
-### Prerequisites
-
-- Node.js 14 or later
-- npm
-
-### Installation
-
-Clone the repository and install its dependencies:
-
-```bash
-git clone https://github.com/AmrahovaDilber/Eat-And-Split.git
-cd Eat-And-Split
-npm install
-```
-
-### Run Locally
-
-Start the development server:
-
-```bash
-npm start
-```
-
-Open [http://localhost:3000](http://localhost:3000) in your browser. The page reloads automatically when you edit the source files.
-
-## Available Scripts
-
-| Command | Description |
-| --- | --- |
-| `npm start` | Runs the app in development mode. |
-| `npm test` | Starts the test runner in watch mode. |
-| `npm run build` | Creates an optimized production build in `build/`. |
-| `npm run eject` | Ejects the Create React App configuration. This is irreversible. |
-
-## Project Structure
-
-```text
-Eat-And-Split/
-├── public/             # Static files and app metadata
-├── src/
-│   ├── App.js          # Friends, selection, and bill-splitting logic
-│   ├── index.css       # Application styles
-│   └── index.js        # React entry point
-├── package.json        # Dependencies and npm scripts
-└── README.md           # Project documentation
-```
-
-## Notes
-
-Friend data is currently held in React state, so balances reset when the page is refreshed. Profile images use image URLs supplied when a friend is added.
+- Friend data and balances are held in React state only; refreshing the page resets changes to the starter data.
+- New profile images use the URL entered in the form, so the image must be publicly reachable by the browser.
+- Bill inputs accept non-negative values, and your expense cannot be greater than the total bill.

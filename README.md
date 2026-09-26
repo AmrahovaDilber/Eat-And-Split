@@ -1,70 +1,86 @@
-# Getting Started with Create React App
+# Eat & Split
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Eat & Split is a simple React app for keeping track of shared meals with friends. Add the people you regularly eat with, select a friend, and record who paid for the bill. The app automatically keeps each friend’s balance up to date so you always know who owes whom.
+
+## Features
+
+- Add friends with a name and profile image URL.
+- Select a friend to open a bill-splitting form.
+- Enter the total bill and each person’s share.
+- Choose whether you or your friend paid the bill.
+- See balances at a glance:
+  - **You owe** a friend when your balance is negative.
+  - **A friend owes you** when their balance is positive.
+  - **You are even** when the balance is zero.
+- Close the selected friend or the add-friend form when it is no longer needed.
+
+## How It Works
+
+1. Start the app and review your friend list.
+2. Select **Add friend** to add someone new.
+3. Choose a friend and enter the total bill.
+4. Enter your share of the bill. The friend’s share is calculated automatically.
+5. Select who paid the bill and submit the form with **Split bill**.
+6. The friend’s balance is updated immediately.
+
+Balances are tracked from your perspective. For example, if you pay the full bill, your friend’s balance increases because they owe you their share. If your friend pays, your balance decreases because you owe them.
+
+## Tech Stack
+
+- [React](https://react.dev/) 18
+- [Create React App](https://create-react-app.dev/)
+- JavaScript
+- CSS
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 14 or later
+- npm
+
+### Installation
+
+Clone the repository and install its dependencies:
+
+```bash
+git clone https://github.com/AmrahovaDilber/Eat-And-Split.git
+cd Eat-And-Split
+npm install
+```
+
+### Run Locally
+
+Start the development server:
+
+```bash
+npm start
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser. The page reloads automatically when you edit the source files.
 
 ## Available Scripts
 
-In the project directory, you can run:
+| Command | Description |
+| --- | --- |
+| `npm start` | Runs the app in development mode. |
+| `npm test` | Starts the test runner in watch mode. |
+| `npm run build` | Creates an optimized production build in `build/`. |
+| `npm run eject` | Ejects the Create React App configuration. This is irreversible. |
 
-### `npm start`
+## Project Structure
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```text
+Eat-And-Split/
+├── public/             # Static files and app metadata
+├── src/
+│   ├── App.js          # Friends, selection, and bill-splitting logic
+│   ├── index.css       # Application styles
+│   └── index.js        # React entry point
+├── package.json        # Dependencies and npm scripts
+└── README.md           # Project documentation
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Notes
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Friend data is currently held in React state, so balances reset when the page is refreshed. Profile images use image URLs supplied when a friend is added.
